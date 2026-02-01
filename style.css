@@ -1,0 +1,231 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("heartBG.jpg");
+    font-family: "Waterfall",
+        cursive;
+    ;
+}
+
+/* envelope screen */
+#envelope-container {
+    text-align: center;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#envelope {
+    width: 500px;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+    align-items: center;
+}
+
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-window {
+    width: 90vw;
+    max-width: 700px;
+    aspect-ratio: 3 / 2;
+
+    background-image: url('window.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* KEY FIX */
+    padding: 90px 60px 50px;
+
+    text-align: center;
+
+    transform: scale(1.1);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+h1 {
+
+    font-size: clamp(22px, 3.5vw, 38px);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+p {
+    font-size: 20px;
+    font-family: "Satisfy",
+        cursive;
+}
+
+/* Cat */
+
+
+
+.cat {
+    width: 140px;
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.letter-window.final.cat {
+    width: 180px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.no-wrapper {
+    position: relative;
+
+}
+
+.btn {
+    width: 120px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.yes-btn,
+.no-btn {
+    width: 100px;
+    height: auto;
+    display: inline-block;
+}
+
+.yes-btn {
+    position: relative;
+    z-index: 2;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+
+}
+
+.no-btn {
+    z-index: 1;
+    position: relative;
+    transition: transform 0.15s ease;
+    cursor: default;
+}
+
+
+
+.final-text {
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+/* Romantic popup */
+#photo-popup {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.love-text {
+    font-size: 28px;
+    margin-bottom: 12px;
+    font-family: "Satisfy", cursive;
+    color: #c9184a;
+}
+
+.photo-stack {
+    display: flex;
+    /* arrange images in a row */
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    /* space between images */
+    margin-top: 20px;
+    opacity: 0;
+    /* initially hidden */
+    transform: scale(0.5);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.photo-stack.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pop-img {
+    width: 120px;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    transform: scale(0);
+    /* start hidden */
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.pop-img.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* stagger effect */
+.pop-img:nth-child(1) {
+    left: 0;
+    top: 20px;
+    animation-delay: 0.2s;
+}
+
+.pop-img:nth-child(2) {
+    left: 60px;
+    top: 0;
+    animation-delay: 0.6s;
+}
+
+.pop-img:nth-child(3) {
+    left: 120px;
+    top: 30px;
+    animation-delay: 1s;
+}
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
