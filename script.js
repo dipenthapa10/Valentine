@@ -22,7 +22,7 @@ envelopeContainer.addEventListener("click", () => {
 
 noBtn.addEventListener("mouseover", () => {
     const min = 200;
-    const max = 100;
+    const max = 50;
 
     const distance = Math.random() * (max - min) + min;
     const angle = Math.random() * Math.PI * 2;
